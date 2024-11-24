@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* main.css */
+:root {
+  /* 明亮模式的颜色 */
+  --c-bg: #fff;
+  --c-scrollbar: #eee;
+  --c-scrollbar-hover: #bbb;
+  --c-text-color: #333;
+  /* 字体颜色可以继承 */
+}
+
+html {
+  /* 使用 CSS 变量 */
+  background-color: var(--c-bg);
+  color: var(--c-text-color);
+}
+
+html.dark {
+  /* 黑暗模式的颜色 */
+  --c-bg: #1a1a1a;
+  --c-scrollbar: #111;
+  --c-scrollbar-hover: #222;
+  --c-text-color: #fff;
+}
+
+* {
+  scrollbar-color: var(--c-scrollbar) var(--c-bg);
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar:horizontal {
+  height: 2px;
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-corner {
+  background: var(--c-bg);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--c-scrollbar);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--c-scrollbar-hover);
+}
