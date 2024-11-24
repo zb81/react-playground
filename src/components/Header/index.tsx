@@ -3,6 +3,7 @@ import { AntDesignDownloadOutlined, AntDesignGithubOutlined, AntDesignMoonOutlin
 import copy from "copy-to-clipboard";
 import { downloadFiles } from "@/utils";
 import { PlaygroundContext } from "@/PlaygroundContext";
+import logo from '../../../public/react.svg'
 
 function IconBtn(props: PropsWithChildren<{ onClick: () => void, title?: string }>) {
   const { title, onClick, children } = props
@@ -21,7 +22,7 @@ export default function Header(props: Props) {
   return (
     <div className="py-3 px-5 border-b dark:border-b-gray-700 flex justify-between items-center">
       <div className="flex items-center">
-        <img src="/react.svg" alt="react logo" />
+        <img src={logo} alt="react logo" />
         <span className="ml-3 font-bold">React Playground</span>
       </div>
 
