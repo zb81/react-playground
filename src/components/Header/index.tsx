@@ -1,13 +1,13 @@
 import { PropsWithChildren, useContext } from "react";
-import { AntDesignDownloadOutlined, AntDesignGithubOutlined, AntDesignMoonOutlined, AntDesignReloadOutlined, AntDesignShareAltOutlined, AntDesignSunOutlined } from "../Icons";
+import { AntDesignDownloadOutlined, AntDesignGithubOutlined, AntDesignMoonOutlined, AntDesignShareAltOutlined, AntDesignSunOutlined } from "../Icons";
 import copy from "copy-to-clipboard";
 import { downloadFiles } from "@/utils";
 import { PlaygroundContext } from "@/PlaygroundContext";
 import logo from '../../../public/react.svg'
 
-function IconBtn(props: PropsWithChildren<{ onClick: () => void, title?: string }>) {
+function IconBtn(props: PropsWithChildren<{ onClick?: () => void, title?: string }>) {
   const { title, onClick, children } = props
-  return <button className="ml-4 hover:text-black dark:hover:text-white" onClick={onClick} title={title}>{children}</button>
+  return <button className="ml-6 hover:text-black dark:hover:text-white" onClick={onClick} title={title}>{children}</button>
 }
 
 interface Props {
@@ -36,9 +36,6 @@ export default function Header(props: Props) {
         }}>
           <AntDesignShareAltOutlined />
         </IconBtn>
-        <IconBtn title="Reload page" onClick={() => { }}>
-          <AntDesignReloadOutlined />
-        </IconBtn>
         <IconBtn title="Download project files" onClick={async () => {
           if (confirm('Download project files?')) {
             await downloadFiles(files)
@@ -46,8 +43,10 @@ export default function Header(props: Props) {
         }}>
           <AntDesignDownloadOutlined />
         </IconBtn>
-        <IconBtn title="View on GitHub" onClick={() => { }}>
-          <AntDesignGithubOutlined />
+        <IconBtn title="View on GitHub">
+          <a href="https://github.com/zb81/react-playground" target="__blank">
+            <AntDesignGithubOutlined />
+          </a>
         </IconBtn>
       </div>
     </div>
